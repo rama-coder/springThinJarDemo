@@ -1,4 +1,4 @@
-Objective here is to download thin jar and use it. We had corrupted thin jar to start with 1.0.11 and then we switched 1.0.19.
+Objective here is to download thin jar and use it. We were getting corrupted thin jar to start with 1.0.11 and then we switched 1.0.19.
 That fixed corrupted jar issue but we are getting the "No deployables found" error. Tried with 1.0.20 and the error persists.
 
 Tried from "mvn -X package org.springframework.boot.experimental:spring-boot-thin-maven-plugin:resolve" from demo project and got the error described @ https://github.com/dsyer/spring-boot-thin-launcher/issues/91
