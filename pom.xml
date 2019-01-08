@@ -34,32 +34,30 @@
 
 <build>
         <plugins>
-	<plugin>
-            <groupId>org.springframework.boot.experimental</groupId>
-            <artifactId>spring-boot-thin-maven-plugin</artifactId>
-            <version>${thin.layout.version}</version>
-	    <dependencies>
-              <dependency>
-                <groupId>org.springframework.boot.experimental</groupId>
-                <artifactId>spring-boot-thin-launcher</artifactId>
-                <version>${thin.layout.version}</version>
-                <!-- <classifier>exec</classifier> -->
-              </dependency>
-            </dependencies>
-            <executions>
-              <execution>
-                <id>generate-app-dependencies</id>
-                <goals>
-                  <goal>resolve</goal>
-                </goals>
-                <phase>verify</phase>
-                <configuration>
-                  <outputDirectory>target/thin/root</outputDirectory>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-
+		<plugin>
+		    <groupId>org.springframework.boot.experimental</groupId>
+		    <artifactId>spring-boot-thin-maven-plugin</artifactId>
+		    <version>${thin.layout.version}</version>
+		    <dependencies>
+		      <dependency>
+			<groupId>org.springframework.boot.experimental</groupId>
+			<artifactId>spring-boot-thin-launcher</artifactId>
+			<version>${thin.layout.version}</version>
+		      </dependency>
+		    </dependencies>
+		    <executions>
+		      <execution>
+			<id>generate-app-dependencies</id>
+			<goals>
+			  <goal>resolve</goal>
+			</goals>
+			<phase>verify</phase>
+			<configuration>
+			  <outputDirectory>target/thin/root</outputDirectory>
+			</configuration>
+		      </execution>
+		    </executions>
+		  </plugin>
+          </plugins>
       </build>
-
 </project>
