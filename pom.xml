@@ -2,18 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>rama.candid.test.thinjar</groupId>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+	<groupId>rama.candid.test.thinJar</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
-
+	<packaging>pom</packaging>
+	<modules>
+    		<module>microservices</module>
+	</modules>
 	<properties>
 		<java.version>1.8</java.version>
 		<thin.layout.version>1.0.20.RELEASE</thin.layout.version>
@@ -32,43 +35,53 @@
 		</dependency>
 	</dependencies>
 
-<build>
+    <build>
         <plugins>
-		<plugin>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-maven-plugin</artifactId>
-			<dependencies>
-				<dependency>
-					<groupId>org.springframework.boot.experimental</groupId>
-					<artifactId>spring-boot-thin-layout</artifactId>
-					<version>${thin.layout.version}</version>
-				</dependency>
-			</dependencies>
-		</plugin>
-		<plugin>
-		    <groupId>org.springframework.boot.experimental</groupId>
-		    <artifactId>spring-boot-thin-maven-plugin</artifactId>
-		    <version>${thin.layout.version}</version>
-		    <dependencies>
-		      <dependency>
-			<groupId>org.springframework.boot.experimental</groupId>
-			<artifactId>spring-boot-thin-launcher</artifactId>
-			<version>${thin.layout.version}</version>
-		      </dependency>
-		    </dependencies>
-		    <executions>
-		      <execution>
-			<id>generate-app-dependencies</id>
-			<goals>
-			  <goal>resolve</goal>
-			</goals>
-			<phase>default</phase>
-			<configuration>
-			  <outputDirectory>target/thin/root</outputDirectory>
-			</configuration>
-		      </execution>
-		    </executions>
-		  </plugin>
-          </plugins>
-      </build>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-maven-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.boot.experimental</groupId>
+                        <artifactId>spring-boot-thin-layout</artifactId>
+                        <version>${thin.layout.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>package-executable-jar</id>
+                            <goals>
+                              <goal>repackage</goal>
+                            </goals>
+                            <phase>package</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot.experimental</groupId>
+                <artifactId>spring-boot-thin-maven-plugin</artifactId>
+                <version>${thin.layout.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.boot.experimental</groupId>
+                        <artifactId>spring-boot-thin-launcher</artifactId>
+                        <version>${thin.layout.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>generate-app-dependencies</id>
+                        <goals>
+                          <goal>resolve</goal>
+                        </goals>
+                        <phase>default</phase>
+                        <configuration>
+                          <outputDirectory>target/thin/root</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
