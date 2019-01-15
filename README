@@ -1,5 +1,11 @@
-Objective here is to download thin jar and use it. Thanks to Dave. Adding missing plugin config and switching phase from verify to default fixed the issue.
+Objective here is to download thin jar and use it. If there is no executable build from top-level,
 
-Following no longer throws "No deployables found" error.
+Running "mvn package org.springframework.boot.experimental:spring-boot-thin-maven-plugin:resolve" throws the following.
 
-mvn -X package org.springframework.boot.experimental:spring-boot-thin-maven-plugin:resolve
+Caused by: org.apache.maven.plugin.MojoExecutionException: No deployables found. If your only deployable is the current project jar, you need to run 'mvn package' at the same time.
+    at org.springframework.boot.experimental.maven.ResolveMojo.execute (ResolveMojo.java:111)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:134)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:208)
+    ...
+    
+    
