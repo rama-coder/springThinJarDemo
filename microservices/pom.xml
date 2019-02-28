@@ -6,7 +6,7 @@
 
   <parent>
     <artifactId>demo</artifactId>
-    <groupId>rama.candid.test.thinJar</groupId>
+    <groupId>candid.test.thinJar</groupId>
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>

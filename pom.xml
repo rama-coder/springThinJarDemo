@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-	<groupId>rama.candid.test.thinJar</groupId>
+	<parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>2.1.1.RELEASE</version>
+	    <relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>candid.test.thinJar</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
@@ -19,6 +19,9 @@
 		<thin.layout.version>1.0.21.RELEASE</thin.layout.version>
 		<spring-boot-maven-plugin.version>2.0.1.RELEASE</spring-boot-maven-plugin.version>
 	</properties>
+	<modules>
+		<module>microservices</module>
+	</modules>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
