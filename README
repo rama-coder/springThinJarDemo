@@ -8,4 +8,4 @@ Caused by: org.apache.maven.plugin.MojoExecutionException: No deployables found.
     at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:208)
     ...
     
-    
+Post 1.0.21.RELEASE, above issue has been fixed.    
